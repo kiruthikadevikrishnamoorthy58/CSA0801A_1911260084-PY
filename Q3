@@ -1,0 +1,18 @@
+#TASK 3
+def validate(number):
+    number = number.upper().replace(" ", "")
+    if len(number) not in [9, 10]:
+        return "Invalid Number"
+    if not number[0:2].isalpha():
+        return "Invalid Number"
+    if not number[2:4].isdigit():
+        return "Invalid Number"
+    if not number[4:-4].isalpha():
+        return "Invalid Number"
+    if not number[-4:].isdigit():
+        return "Invalid Number"
+    return " ".join([number[:2], number[2:4], number[4:-4], number[-4:]])
+numbers = ["TN09AB1234", "tn 09 ab 1234", "KA05C5678",
+           "1234AB5678", "TN9AB1234", "TN09ABC1234"]
+for n in numbers:
+    print(n, ":", validate(n))

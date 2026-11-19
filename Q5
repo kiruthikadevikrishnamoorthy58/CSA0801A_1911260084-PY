@@ -1,0 +1,21 @@
+#TASK 5
+# Correct function using None
+def add_item(item, order=None):
+    if order is None:
+        order = []
+    order.append(item)
+    return order
+# Three customers
+customer1 = add_item("Tea")
+customer1 = add_item("Vada", customer1)
+customer2 = add_item("Tea")
+customer3 = add_item("Vada")
+print(customer1)
+print(customer2)
+print(customer3)
+# Returning multiple values
+def bill(amount):
+    gst = amount * 0.05
+    total = amount + gst
+    return total, gst
+print("Total and GST:", bill(100))

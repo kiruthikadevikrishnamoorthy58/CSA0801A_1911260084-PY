@@ -1,0 +1,28 @@
+#TASK 2
+otp = "1234"
+attempts = 0
+while attempts < 3:
+    entered = input("Enter OTP: ")
+    if entered == "":
+        print("Blank entry. Try again.")
+        continue
+    if entered == otp:
+        print("Login Successful!")
+        break
+    attempts += 1
+    print("Incorrect OTP")
+else:
+    print("Account Locked for 30 minutes")
+# Using FOR loop
+attempts = 0
+for i in range(3):
+    entered = input("Enter OTP: ")
+    if entered == "":
+        continue
+    if entered == otp:
+        print("Login Successful!")
+        break
+    attempts += 1
+    print("Incorrect OTP")
+else:
+    print("Account Locked for 30 minutes")

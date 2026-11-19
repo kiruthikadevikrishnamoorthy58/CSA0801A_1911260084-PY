@@ -1,0 +1,30 @@
+households = [(100, True, 50),(101, True, 45),(150, False, 60),(200, True, 70),
+              (201, False, 65),(250, False, 85),
+    (80, False, 40),(180, True, 82)]     #TASK 1   # Electricity Subsidy Eligibility  # Eight household details
+print("ELECTRICITY SUBSIDY ELIGIBILITY")
+print("--------------------------------")
+print("\n1. Using Separate IF Statements")      # Method 1: Using separate if statements
+for units, ration, age in households:
+    print("\nUnits:", units, "Ration Card:", ration, "Age:", age)
+    subsidy = []
+    if units <= 100:
+        subsidy.append("Full Subsidy")
+    if units >= 101 and units <= 200 and ration:
+        subsidy.append("Partial Subsidy")
+    if units > 200 and age > 80:
+        subsidy.append("Special Subsidy")
+    if len(subsidy) == 0:
+        print("No Subsidy")
+    else:
+        print("Result:", ", ".join(subsidy))
+print("\n\n2. Using IF-ELIF-ELSE Statements")   # Method 2: Using IF-ELIF-ELSE
+for units, ration, age in households:
+    print("\nUnits:", units, "Ration Card:", ration, "Age:", age)
+    if units <= 100:
+        print("Full Subsidy")
+    elif 101 <= units <= 200 and ration:
+        print("Partial Subsidy")
+    elif units > 200 and age > 80:
+        print("Special Subsidy")
+    else:
+        print("No Subsidy")

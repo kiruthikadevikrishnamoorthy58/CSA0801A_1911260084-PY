@@ -1,0 +1,43 @@
+#TASK 7
+import time
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+if a <= 0 or b <= 0:
+    print("Enter positive numbers only")
+else:
+    # Original LCM Program
+    start = time.perf_counter()
+    i = max(a, b)
+    original_count = 0
+    while True:
+        original_count += 1
+        if i % a == 0 and i % b == 0:
+            original_lcm = i
+            break
+        i += 1
+    original_time = time.perf_counter() - start
+    # Redesigned LCM Program
+    start = time.perf_counter()
+    x = a
+    y = b
+    revised_count = 0
+    while y != 0:
+        x, y = y, x % y
+        revised_count += 1
+    gcd = x
+    revised_lcm = (a * b) // gcd
+    revised_time = time.perf_counter() - start
+    # Display Results
+    print("\n--- ORIGINAL SOLUTION ---")
+    print("LCM =", original_lcm)
+    print("Operations =", original_count)
+    print("Execution Time =", original_time)
+    print("\n--- REDESIGNED SOLUTION ---")
+    print("LCM =", revised_lcm)
+    print("Operations =", revised_count)
+    print("Execution Time =", revised_time)
+    print("\n--- COMPARISON ---")
+    if original_lcm == revised_lcm:
+        print("Both solutions give the same result")
+    else:
+        print("Results are different")

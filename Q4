@@ -1,0 +1,26 @@
+#TASK 4
+import time
+n = [1000, 10000, 200000]
+for size in n:
+    # Method 1: Using +=
+    start = time.perf_counter()
+    statement = ""
+    for i in range(size):
+        statement += f"Call/SMS {i+1}\n"
+    t1 = time.perf_counter() - start
+    # Method 2: Using join()
+    start = time.perf_counter()
+    parts = []
+    for i in range(size):
+        parts.append(f"Call/SMS {i+1}\n")
+    statement = "".join(parts)
+    t2 = time.perf_counter() - start
+    # Method 3: Using f-string
+    start = time.perf_counter()
+    parts = [f"Call/SMS {i+1}\n" for i in range(size)]
+    statement = "".join(parts)
+    t3 = time.perf_counter() - start
+    print("\nLines:", size)
+    print("Using += :", round(t1, 5), "seconds")
+    print("Using join():", round(t2, 5), "seconds")
+    print("Using f-string:", round(t3, 5), "seconds")
